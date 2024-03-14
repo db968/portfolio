@@ -85,7 +85,7 @@ ul {
     left: 0;
     width: 100%;
     background-color: rgba(80, 80, 80, 0.2);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(25px);
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 }

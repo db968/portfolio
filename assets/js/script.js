@@ -1,51 +1,73 @@
-$(document).ready(function() {
+document.addEventListener('DOMContentLoaded', function() {
 
-    const $desktopLinks = $('.custom-navbar .navigation .nav-link');
-    const $mobileLinks = $('.bottom-navbar .navbar-nav .nav-link');
-    const $contents = $('.page-content, .portfolio, .contact');
-    const $dropdownContent = $("#dropdownContent");
-    const $dropdownIcon = $("#dropdownIcon");
-    const $ttLinks = $('a.tt');
+    const desktopLinks = document.querySelectorAll('.custom-navbar .navigation .nav-link');
+    const mobileLinks = document.querySelectorAll('.bottom-navbar .navbar-nav .nav-link');
+    const contents = document.querySelectorAll('.page-content, .portfolio, .contact');
+    const dropdownContent = document.getElementById("dropdownContent");
+    const dropdownIcon = document.getElementById("dropdownIcon");
+    const ttLinks = document.querySelectorAll('a.tt');
 
-    function showContent(index) { $contents.addClass('d-none').eq(index).removeClass('d-none'); }
+    function showContent(index) {
+        contents.forEach(content => {
+            content.classList.add('d-none');
+        });
+        contents[index].classList.remove('d-none');
+    }
 
-    function setActiveLink($links, index) { $links.removeClass('active').eq(index).addClass('active'); }
+    function setActiveLink(links, index) {
+        links.forEach(link => {
+            link.classList.remove('active');
+        });
+        links[index].classList.add('active');
+    }
 
-    function handleLinkClick($links) {
+    function handleLinkClick(links) {
         return function(event) {
             event.preventDefault();
-            const index = $links.index(this);
-            setActiveLink($links, index);
+            const index = Array.from(links).indexOf(this);
+            setActiveLink(links, index);
             showContent(index);
         };
     }
 
-    $desktopLinks.on('click', handleLinkClick($desktopLinks));
+    desktopLinks.forEach(link => {
+        link.addEventListener('click', handleLinkClick(desktopLinks));
+    });
 
-    $mobileLinks.on('click', handleLinkClick($mobileLinks));
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', handleLinkClick(mobileLinks));
+    });
 
-    function toggleDropdown() { $dropdownContent.toggle($(window).width() >= 992); }
+    function toggleDropdown() {
+        dropdownContent.style.display = (window.innerWidth >= 992) ? 'block' : 'none';
+    }
 
-    $dropdownIcon.click(function() { $dropdownContent.toggle(); });
+    dropdownIcon.addEventListener('click', function() {
+        dropdownContent.style.display = (dropdownContent.style.display === 'none') ? 'block' : 'none';
+    });
 
     function addStylesToTTLinks() {
-        const screenWidth = $(window).width();
-        const maxWidth = screenWidth < 250 || (screenWidth < 1200 && screenWidth > 991) ? '140px' : '';
-        $ttLinks.toggleClass('d-inline-block text-truncate', maxWidth !== '').css('max-width', maxWidth);
+        const screenWidth = window.innerWidth;
+        const maxWidth = (screenWidth < 250 || (screenWidth < 1200 && screenWidth > 991)) ? '140px' : '';
+        ttLinks.forEach(link => {
+            link.classList.toggle('d-inline-block', maxWidth !== '');
+            link.classList.toggle('text-truncate', maxWidth !== '');
+            link.style.maxWidth = maxWidth;
+        });
     }
 
     function updateZoom() {
-        if ($(window).width() < 250) {
-            const zoom = $(window).width() / 250;
-            $('body').css('zoom', zoom);
+        if (window.innerWidth < 250) {
+            const zoom = window.innerWidth / 250;
+            document.body.style.zoom = zoom;
         } else {
-            $('body').css('zoom', 1);
+            document.body.style.zoom = 1;
         }
     }
 
-    let isSmallScreen = $(window).width() < 992;
-    $(window).on('resize', function() {
-        const currentIsSmallScreen = $(window).width() < 992;
+    let isSmallScreen = window.innerWidth < 992;
+    window.addEventListener('resize', function() {
+        const currentIsSmallScreen = window.innerWidth < 992;
         if (currentIsSmallScreen !== isSmallScreen) {
             isSmallScreen = currentIsSmallScreen;
             toggleDropdown();

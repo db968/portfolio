@@ -30,7 +30,7 @@ a {
     outline: none;
 }
 
-a.active { color: #ffae21; }
+.active { color: #ffae21 !important; }
 
 i { color: #ebc077; }
 
@@ -46,9 +46,11 @@ ul {
     margin: 0;
 }
 
-.links:hover, .contacts span:hover { color: #ffc461; }
+.links:hover, .contacts span:hover, .nav-link:hover { color: #ffc461; }
 
 .links, p { color: #b5b5b5; }
+
+p { font-size: 16px; }
 
 .navigation {
     position: absolute;

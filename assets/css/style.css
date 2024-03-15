@@ -29,7 +29,9 @@ body {
     border-radius: 20px;
 }
 
-.logo { width: 150px; }
+.logo {
+    width: 150px;
+}
 
 a {
     text-decoration: none;
@@ -111,30 +113,6 @@ p { font-size: 16px; }
     border-color: #bbbbbb7a;
 }
 
-.row {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.col {
-    flex: 0 0 33.33%;
-    padding: 10px;
-}
-
-.figure { text-align: center; }
-
-.figure-img {
-    max-width: 100%;
-    height: auto;
-}
-
-@media (max-width: 1199px) {
-    .col {
-        flex: 0 0 50%;
-        padding: 10px;
-    }
-}
-
 @media (max-width: 991px) {
 
     .card-text.text-left { text-align: center; }
@@ -145,13 +123,6 @@ p { font-size: 16px; }
         left: 50%;
         transform: translateX(-50%);
         width: 50px;
-    }
-}
-
-@media (max-width: 767px) {
-    .col {
-        flex: 0 0 100%;
-        padding: 10px;
     }
 }
 

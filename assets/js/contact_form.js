@@ -1,25 +1,30 @@
-$(document).ready(function() {
-    $('#contact').on('submit', function(event) {
-        event.preventDefault();
-
-        $.ajax({
-            url: $(this).attr('action'),
-            method: $(this).attr('method'),
-            data: new FormData(this),
-            processData: false,
-            contentType: false,
-            success: function(response) {
-                if (response.success) {
-                    $('#contact')[0].reset();
-                    alert('Form submitted successfully!');
-                } else {
-                    alert('There was a problem submitting the form.');
-                }
-            },
-            error: function(xhr, status, error) {
-                alert('There was a problem submitting the form.');
-                console.error('Error:', error);
+var form = document.getElementById("contact");
+    
+    async function handleSubmit(event) {
+      event.preventDefault();
+      var status = document.getElementById("my-form-status");
+      var data = new FormData(event.target);
+      fetch(event.target.action, {
+        method: form.method,
+        body: data,
+        headers: {
+            'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          status.innerHTML = "Thanks for your submission!";
+          form.reset()
+        } else {
+          response.json().then(data => {
+            if (Object.hasOwn(data, 'errors')) {
+              status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+            } else {
+              status.innerHTML = "Oops! There was a problem submitting your form"
             }
-        });
-    });
-});
+          })
+        }
+      }).catch(error => {
+        status.innerHTML = "Oops! There was a problem submitting your form"
+      });
+    }
+    form.addEventListener("submit", handleSubmit)

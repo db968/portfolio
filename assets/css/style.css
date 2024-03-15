@@ -5,6 +5,7 @@
 *::after {
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
 }
 
 html { scrollbar-color: #1e1e1f; }
@@ -16,6 +17,13 @@ body {
 
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-thumb { background-color: #1e1e1f; }
+
+#sidebar {
+    position: sticky;
+    height: max-content;
+    top: 0;
+    padding-bottom: 96px;
+}
 
 .card {
     background-color: #1e1e1f;
@@ -113,6 +121,32 @@ p { font-size: 16px; }
     border-color: #bbbbbb7a;
 }
 
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+.slide-in {
+    opacity: 0;
+    animation: slideInFromTop 1s ease-in-out forwards;
+}
+
+@keyframes slideInFromTop {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
 @media (max-width: 991px) {
 
     .card-text.text-left { text-align: center; }
@@ -124,8 +158,21 @@ p { font-size: 16px; }
         transform: translateX(-50%);
         width: 50px;
     }
+
+    #sidebar {
+        position: static;
+        padding-bottom: 0;
+    }
 }
 
 @media (max-width: 250px) {
-    body { overflow: hidden; }
+    body { overflow-x: hidden; }
+}
+
+.project {
+    transition: transform 0.3s ease;
+}
+  
+.project:hover {
+    transform: scale(1.1);
 }

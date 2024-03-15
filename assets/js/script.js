@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+    
     const $desktopLinks = $('.custom-navbar .navigation .nav-link');
     const $mobileLinks = $('.bottom-navbar .navbar-nav .nav-link');
     const $contents = $('.page-content, .portfolio, .contact');

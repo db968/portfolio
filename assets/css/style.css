@@ -123,6 +123,7 @@ p { font-size: 16px; }
 
 .fade-in {
     opacity: 0;
+    -webkit-animation: fadeIn 1s ease-in-out forwards;
     animation: fadeIn 1s ease-in-out forwards;
 }
 
@@ -134,12 +135,19 @@ p { font-size: 16px; }
 @keyframes slideInFromTop {
     0% {
         opacity: 0;
+        -webkit-transform: translateY(-100%);
         transform: translateY(-100%);
     }
     100% {
         opacity: 1;
+        -webkit-transform: translateY(0);
         transform: translateY(0);
     }
+}
+
+@-webkit-keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
 @keyframes fadeIn {

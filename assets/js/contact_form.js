@@ -9,8 +9,12 @@ $(document).ready(function() {
             processData: false,
             contentType: false,
             success: function(response) {
-                $('#contact')[0].reset();
-                alert('Form submitted successfully!');
+                if (response.success) {
+                    $('#contact')[0].reset();
+                    alert('Form submitted successfully!');
+                } else {
+                    alert('There was a problem submitting the form.');
+                }
             },
             error: function(xhr, status, error) {
                 alert('There was a problem submitting the form.');

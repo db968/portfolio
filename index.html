@@ -20,12 +20,14 @@
                 <aside class="col-lg-3 mb-4 mb-lg-0">
                     <div class="card mt-4 rounded-4 text-white">
 
-                        <img class="card-img-top img-fluid mx-auto logo" src="assets/img/logo.png"/>
+                        <div class="logo-container mt-5">
+                            <img class="card-img-top img-fluid logo" src="assets/img/logo.png"/>
+                        </div>
 
                         <div class="card-body">
                             <div class="card-text text-center">
 
-                                <h3>David Bukin</h3>
+                                <h3 class="mt-3">David Bukin</h3>
                                 <p class="badge bg-secondary">VIDEO EDITOR</p>
 
                                 <div class="dropdown">
@@ -75,33 +77,20 @@
                                     
                                     <p>Hey, I'm David Bukin, a 20-year-old video editing enthusiast hailing from Serbia. With Adobe Premiere Pro as my canvas, I craft visual tales that mesmerize and inspire. Come explore the world through my lens, where every cut is a brushstroke in the art of storytelling.</p>
                                     <p class="mt-4">Video editing is my passion—I don't just cut clips, I craft stories. With each project, I aim to create captivating visuals that leave a lasting impact. From heartfelt narratives to dynamic promos, I bring your vision to life with creativity and flair. Let's make your story unforgettable.</p>
+                                
+                                    
                                 </div>
 
                                 <div class="portfolio d-none px-4">
                                     <div class="page-title">
                                         <div class="col fw-bold"><h2 class="article-title position-relative mb-4">Portfolio</h2></div>
                                     </div>
-                                    <div class="tabs">
-                                        <button class="tablink active" data-tab="short">Short Form</button>
-                                        <button class="tablink" data-tab="long">Long Form</button>
-                                    </div>
                                     
-                                    <div id="short" class="tabcontent active">
-                                        <!-- Short form video content here -->
-                                        <div class="videos"></div>
-                                    </div>
+                                    <div class="container" id="projects-container"></div>
                                     
-                                    <div id="long" class="tabcontent">
-                                        <!-- Long form video content here -->
-                                        <div class="videos"></div>
-                                    </div>
-                                    
-                                    <div class="pagination">
-                                        <!-- Pagination controls here -->
-                                        <button class="prevPage">Previous</button>
-                                        <span class="page"></span>
-                                        <button class="nextPage">Next</button>
-                                    </div>
+                                    <nav aria-label="Page navigation">
+                                        <ul class="pagination justify-content-center" id="pagination"></ul>
+                                    </nav>
                                     
                                 </div>
 
@@ -159,26 +148,25 @@
                 
                 <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
                     <ul class="navbar-nav">
-                        
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">About</a>
+                            <a class="nav-link active" href="#" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">About</a>
                         </li>
-
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Portfolio</a>
+                            <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Portfolio</a>
                         </li>
-
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contact</a>
+                            <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Contact</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
+        
 
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="assets/js/script.js"></script>
+        <script src="assets/js/portfolio.js"></script>
     </body>
 </html>

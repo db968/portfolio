@@ -1,5 +1,12 @@
 $(document).ready(function() {
 
+    if (navigator.userAgent.indexOf("Chrome/") != -1) {
+        $('.logo').css({
+            'background-color': '#39393a',
+            'border-radius': '20px'
+        });
+    }
+
     const $desktopLinks = $('.custom-navbar .navigation .nav-link');
     const $mobileLinks = $('.bottom-navbar .navbar-nav .nav-link');
     const $contents = $('.page-content, .portfolio, .contact');

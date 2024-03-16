@@ -22,42 +22,75 @@ body {
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-thumb { background-color: #1e1e1f; }
 
-.pre-header {
+
+.vertical-w {
+    font-size: 32px;
+    letter-spacing: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100px;
     background-color: #1e1e1f;
+    border-left: 1px solid #3a3939;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    color: #ffc561b2;
+}
+
+
+.pre-header {
+    background-color: #ffc561be;
     border-radius: 10px;
     border: 1px solid #3a3939;
 }
 
 .pre-header-text {
-    color: #b5b5b5;
+    color: #fff;
 }
 
-marquee {
-    -webkit-animation:  caption 50s linear 0s infinite;
-    font-family:'Segoe ui';
-    padding:20px 0;
-    border: 1px solid #000;
-  background-color: #fff;
-  -webkit-box-shadow: inset 0px 2px 2px rgba(0, 0, 0, .5), 0px 1px 0px rgba(250, 250, 250, .2);
-  box-shadow: inset 0px 2px 2px rgba(0, 0, 0, .5), 0px 1px 0px rgba(250, 250, 250, .2);
-  -webkit-transition: background-color 350ms;
-  -moz-transition: background-color 350ms;
-  transition: background-color 350ms;
+.marquee {
     overflow: hidden;
-    overflow-x:-webkit-marquee;
-    -webkit-marquee-direction: right;
-    -webkit-marquee-style: scroll;
-    -webkit-marquee-speed: normal;
-    -webkit-marquee-increment: small;
-    -webkit-marquee-repetition: 5;
-    overflow-x: marquee-line;
-    marquee-direction: forward;
-    marquee-style: loop;
-    marquee-speed: slow;
-    marquee-play-count: 5;
-    color:#28282a;
-    background:#ffeb95;
-  }
+    position: relative;
+    padding-left: 100%;
+    /*webkit animation*/
+    animation: reduce 20s linear infinite;
+}
+
+.marquee__inner {
+    white-space: nowrap;
+    display: inline-block;
+    /*webkit animation*/
+    animation: scroll 20s linear infinite;
+}
+
+.marquee::after {
+    left: auto; right: 0;
+    transform: rotate(180deg);
+}
+
+.marquee:hover, .marquee:hover .marquee__inner {
+    /*webkit animation*/
+    animation-play-state: paused;
+}
+
+/* @-webkit-keyframes */
+@keyframes reduce {
+    to {
+        padding-left: 0;
+    }
+}
+
+@keyframes scroll {
+    to {
+        transform: translateX( -100% );
+    }
+}
+
 
 #sidebar {
     position: sticky;
@@ -195,6 +228,12 @@ p { font-size: 16px; }
     opacity: 0;
     -webkit-animation: slideInFromTop 1s ease-in-out forwards;
     animation: slideInFromTop 1s ease-in-out forwards;
+}
+
+@media (max-width: 1550px) {
+    .vertical-w {
+        display: none !important;
+    }
 }
 
 @media (max-width: 991px) {

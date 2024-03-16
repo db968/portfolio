@@ -22,6 +22,16 @@ body {
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-thumb { background-color: #1e1e1f; }
 
+.pre-header {
+    background-color: #1e1e1f;
+    border-radius: 10px;
+    border: 1px solid #3a3939;
+}
+
+.pre-header-text {
+    color: #b5b5b5;
+}
+
 #sidebar {
     position: sticky;
     height: max-content;

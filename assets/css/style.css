@@ -32,6 +32,14 @@ body {
     color: #b5b5b5;
 }
 
+marquee {
+    -webkit-overflow-scrolling: touch;
+    overflow: hidden;
+    overflow-x: -webkit-marquee;
+    -webkit-marquee-direction: forwards;
+    -webkit-marquee-speed: fast;
+}
+
 #sidebar {
     position: sticky;
     height: max-content;

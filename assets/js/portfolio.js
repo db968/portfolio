@@ -29,6 +29,15 @@ function generateProjectCard(project) {
     `;
 }
 
+function showProjects(projectsToShow) {
+    projectsToShow.forEach(function(project, index) {
+        var $projectCard = $(generateProjectCard(project));
+        $('#projectContainer').append($projectCard);
+        $projectCard.hide().delay(index * 200).fadeIn(500);
+    });
+}
+
+
 // Function to display projects based on current page
 function displayProjects(pageNumber, pageSize) {
     var startIndex = (pageNumber - 1) * pageSize;
@@ -40,25 +49,21 @@ function displayProjects(pageNumber, pageSize) {
     var windowWidth = $(window).width();
 
     if (windowWidth <= 768 && $('a.nav-link[href="#pf"]').hasClass('active')) {
-        var targetOffset = ($(window).width() <= 768) ? 315 : 0;
+
+        var targetOffset = (windowWidth <= 768) ? 315 : 0;
+
         if (targetOffset !== undefined) {
             $(window).scrollTop(targetOffset);
         }
+
         setTimeout(function() {
-            projectsToShow.forEach(function(project, index) {
-                var $projectCard = $(generateProjectCard(project));
-                $('#projectContainer').append($projectCard);
-                $projectCard.hide().delay(index * 200).fadeIn(500);
-            });
-        },500);
+            showProjects(projectsToShow);
+        }, 300);
     } else {
-        projectsToShow.forEach(function(project, index) {
-            var $projectCard = $(generateProjectCard(project));
-            $('#projectContainer').append($projectCard);
-            $projectCard.hide().delay(index * 200).fadeIn(500);
-        });
+        showProjects(projectsToShow);
     }
 }
+
 
 // Function to generate pagination buttons
 function generatePaginationButtons(totalPages) {

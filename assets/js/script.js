@@ -57,4 +57,21 @@ $(document).ready(function() {
     toggleDropdown();
     addStylesToTTLinks();
     updateZoom();
+
+    $(".tt").click(function(){
+        var textToCopy = $(this).text().trim();
+        var originalHTML = $(this).html();
+        var originalColor = $(this).css("color");
+
+        navigator.clipboard.writeText(textToCopy);
+
+        $(this).text("Copied");
+    
+        $(this).css("color", "green");
+
+        setTimeout(function(){
+            $(this).html(originalHTML);
+            $(this).css("color", originalColor);
+        }.bind(this), 1500);
+    });
 });

@@ -31,16 +31,23 @@ body {
     left: 0;
     height: 100%;
     width: 100px;
-    background-color: #1e1e1f;
+    background-color: rgb(30, 30, 31, 0.4);
     border-left: 1px solid #3a3939;
-
     display: flex;
     align-items: center;
     justify-content: center;
     writing-mode: vertical-rl;
     transform: rotate(180deg);
     color: #ffc561b2;
+    text-shadow:
+        -1px -1px 0 #000,
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000,
+         0px  0px 5px #ffc561b2;
+
 }
+  
 
 
 .pre-header {
@@ -103,6 +110,54 @@ body {
     background-color: #1e1e1f;
     border-color: #3a3939;
 }
+
+.card-img-top {
+    transition: opacity 0.3s ease-in-out;
+}
+
+.hover-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.hover-effect:hover .card-img-top {
+    opacity: 0.4;
+}
+
+.hover-effect i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    font-size: 2rem;
+    color: white;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.hover-effect:hover i {
+    opacity: 1;
+}
+
+.pagination .page-item .page-link:focus {
+    box-shadow: none !important;
+}
+
+.pagination .page-item .page-link {
+    border: none;
+    color: #afafaf;
+    background-color: #3a3939;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #ffc5614f !important;
+}
+
+
+
+
+
+
 
 .logo-container {
     background-color: #39393a;

@@ -103,118 +103,15 @@
                                 <!-- Portfolio Content -->
                                 <div class="portfolio fade-in d-none px-4">
                                     
-                                    <div class="page-title">
+                                    <div class="page-title" id="topScroll">
                                         <div class="col fw-bold"><h2 class="article-title position-relative mb-4">Portfolio</h2></div>
                                     </div>
                                     
                                     <div class="container mt-5">
-                                        <div class="row">
-                                            <div class="col-md-4 mb-4">
-                                                <div class="card project">
-                                                    <img src="assets/img/path.png" class="card-img-top" alt="...">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title text-white">Project #1</h5>
-                                                        <p class="card-text mt-1"></p>
-                                                        <a href="#" class="btn btn-warning">Watch</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-4 mb-4">
-                                                <div class="card project">
-                                                    <img src="assets/img/path.png" class="card-img-top" alt="...">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title text-white">Project #2</h5>
-                                                        <p class="card-text mt-1"></p>
-                                                        <a href="#" class="btn btn-warning">Watch</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-4 mb-4">
-                                                <div class="card project">
-                                                    <img src="assets/img/path.png" class="card-img-top" alt="...">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title text-white">Project #3</h5>
-                                                        <p class="card-text mt-1"></p>
-                                                        <a href="#" class="btn btn-warning">Watch</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="row">
-                                            <div class="col-md-4 mb-4">
-                                                <div class="card project">
-                                                    <img src="assets/img/path.png" class="card-img-top" alt="...">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title text-white">Project #4</h5>
-                                                        <p class="card-text mt-1"></p>
-                                                        <a href="#" class="btn btn-warning">Watch</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-4 mb-4">
-                                                <div class="card project">
-                                                    <img src="assets/img/path.png" class="card-img-top" alt="...">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title text-white">Project #5</h5>
-                                                        <p class="card-text mt-1"></p>
-                                                        <a href="#" class="btn btn-warning">Watch</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-4 mb-4">
-                                                <div class="card project">
-                                                    <img src="assets/img/path.png" class="card-img-top" alt="...">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title text-white">Project #6</h5>
-                                                        <p class="card-text mt-1"></p>
-                                                        <a href="#" class="btn btn-warning">Watch</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        
-
-                                        <div class="row">
-                                            <div class="col-md-4 mb-4">
-                                                <div class="card project">
-                                                    <img src="assets/img/path.png" class="card-img-top" alt="...">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title text-white">Project #7</h5>
-                                                        <p class="card-text mt-1"></p>
-                                                        <a href="#" class="btn btn-warning">Watch</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-4 mb-4">
-                                                <div class="card project">
-                                                    <img src="assets/img/path.png" class="card-img-top" alt="...">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title text-white">Project #8</h5>
-                                                        <p class="card-text mt-1"></p>
-                                                        <a href="#" class="btn btn-warning">Watch</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-4 mb-4">
-                                                <div class="card project">
-                                                    <img src="assets/img/path.png" class="card-img-top" alt="...">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title text-white">Project #9</h5>
-                                                        <p class="card-text mt-1"></p>
-                                                        <a href="#" class="btn btn-warning">Watch</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <div id="projectContainer" class="row"></div>
+                                        <nav id="paginationNav" aria-label="Page navigation">
+                                            <ul id="paginationList" class="pagination justify-content-center"></ul>
+                                        </nav>
                                     </div>
                                 </div>
 
@@ -279,7 +176,7 @@
                             <a class="nav-link active" href="#" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Portfolio</a>
+                            <a class="nav-link" href="#pf" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Portfolio</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Contact</a>
